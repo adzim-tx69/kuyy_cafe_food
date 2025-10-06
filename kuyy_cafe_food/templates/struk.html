@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="struk-box">
+  <h2>Struk Kuyy Cafe & Food</h2>
+  <p>Terima kasih atas pembelian Anda!</p>
+  <p>Total: Rp {{ total }}</p>
+  <p>Tanggal: {{ tanggal }}</p>
+  <a href="{{ url_for('kasir') }}" class="btn">Kembali</a>
+</div>
+{% endblock %}

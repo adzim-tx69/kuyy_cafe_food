@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuyy Cafe & Food</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" class="logo" alt="KUYY Logo">
+    <h1>Kuyy Cafe & Food</h1>
+    {% if session.get('user') %}
+      <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+    {% endif %}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <p>© 2025 Kuyy Cafe & Food</p>
+  </footer>
+</body>
+</html>

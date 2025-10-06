@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Kasir Kuyy Cafe & Food</h2>
+<form method="post" action="{{ url_for('bayar') }}">
+  <table>
+    <tr><th>Pilih</th><th>Menu</th><th>Harga</th></tr>
+    {% for item in menu %}
+    <tr>
+      <td><input type="checkbox" name="item" value="{{ item[1] }}">
+          <input type="hidden" name="harga" value="{{ item[2] }}"></td>
+      <td>{{ item[1] }}</td>
+      <td>Rp {{ item[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <button type="submit">Bayar</button>
+</form>
+
+<a href="{{ url_for('admin_page') }}" class="btn-back">Admin</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manajemen Menu</h2>
+<form method="post" action="{{ url_for('tambah_menu') }}" class="form-inline">
+  <input type="text" name="nama" placeholder="Nama menu" required>
+  <input type="number" name="harga" placeholder="Harga (Rp)" required>
+  <button type="submit">Tambah</button>
+</form>
+
+<table>
+  <tr><th>Nama</th><th>Harga</th><th>Aksi</th></tr>
+  {% for item in menu %}
+  <tr>
+    <td>{{ item[1] }}</td>
+    <td>Rp {{ item[2] }}</td>
+    <td><a href="{{ url_for('hapus_menu', id=item[0]) }}">Hapus</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{{ url_for('kasir') }}" class="btn-back">Ke Kasir</a>
+{% endblock %}
